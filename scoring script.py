@@ -1,11 +1,11 @@
 import pandas as pd
 from sklearn . metrics import f1_score
 import sys
-
+#update to include the automated leaderboard.
 # Usage : python scoring_script .py submissions / file .csv
 
 submission_file = sys . argv [1]
- # Load submission
+#Load submission
 submission = pd . read_csv ( submission_file )
 
 12 # Load ground truth ( hidden )
