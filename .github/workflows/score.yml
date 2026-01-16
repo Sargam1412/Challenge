@@ -1,0 +1,27 @@
+name: Score Submission
+
+on:
+  pull_request:
+    paths:
+      - "submissions/*.csv"
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r starter_code/requirements.txt pandas scikit-learn
+
+      - name: Run scoring
+        run: python scoring_script.py submissions/*.csv
+
+      - name: Update leaderboard
+        run: python update_leaderboard.py

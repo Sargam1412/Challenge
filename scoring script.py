@@ -9,7 +9,7 @@ submission_file = sys . argv [1]
 submission = pd . read_csv ( submission_file )
 
 12 # Load ground truth ( hidden )
-truth = pd . read_csv ('data / test_labels .csv ')
+truth = pd.read_csv('ground_truth.csv')
 # Compute F1 score
 score = f1_score ( truth ['target '] , submission ['target '] , average ='macro ')
 print ( f'Submission F1 Score : { score :.4f}')
