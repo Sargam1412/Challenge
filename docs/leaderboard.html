@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Leaderboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <h1>Leaderboard</h1>
+
+    <input type="text" id="searchBox" placeholder="Search team...">
+
+    <table id="leaderboard">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Team ▲▼</th>
+                <th onclick="sortTable(1)">Score ▲▼</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be inserted here by JS -->
+        </tbody>
+    </table>
+
+    <script src="leaderboard.js"></script>
+</body>
+</html>
