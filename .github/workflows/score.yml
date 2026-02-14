@@ -4,7 +4,8 @@ on:
   pull_request:
     paths:
       - "submissions/*.csv"
-
+permissions:
+  contents: write
 jobs:
   score:
     runs-on: ubuntu-latest
@@ -28,9 +29,9 @@ jobs:
       # 4️⃣ Create hidden ground truth CSV from secret
       - name: Create hidden test labels
         run: |
-          echo "${{ secrets.TESTREAL }}" > ground_truth.csv
+          echo "${{ secrets.TESTREAL }}" > data/ground_truth.csv
           echo "Ground truth first line:"
-          head -1 ground_truth.csv
+          head -1 data/ground_truth.csv
 
       # 5️⃣ Debug - list files
       - name: List files
@@ -43,9 +44,16 @@ jobs:
           ls submissions/
           for file in submissions/*.csv; do
             echo "Scoring $file"
-            python scoring_script.py "$file" ground_truth.csv
+            python scoring_script.py "$file" data/ground_truth.csv
           done
 
       # 7️⃣ Update leaderboard
       - name: Update leaderboard
         run: python update_leaderboard.py
+      - name: Commit and push leaderboard
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add leaderboard/leaderboard.md
+          git commit -m "Update leaderboard via workflow" || echo "No changes to commit"
+          git push origin HEAD:${{ github.head_ref }} --force
