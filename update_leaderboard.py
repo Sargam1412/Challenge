@@ -11,4 +11,8 @@ score = float(re.search(r"SCORE=(.*)", result).group(1))
 
 # Append new score to markdown leaderboard
 with open("leaderboard.md", "a") as f:
-    f.write(f"\n| latest_submission | {score:.4f} |")
+    f.write(f"\n| latest_submission9 | {score:.4f} |")
+
+# Also print to stdout so it appears in GitHub Actions log
+with open("leaderboard.md") as f:
+    print(f.read())
