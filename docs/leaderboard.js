@@ -1,7 +1,7 @@
 // Load CSV and populate table
 async function loadLeaderboard() {
 
-const response = await fetch("https://raw.githubusercontent.com/NoorMajdoub/Challenge/test-leaderboard/leaderboard/leaderboard.csv");
+const response = await fetch("https://raw.githubusercontent.com/NoorMajdoub/Challenge/main/leaderboard/leaderboard.csv");
    
 
     console.log("response")
