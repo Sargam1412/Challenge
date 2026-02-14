@@ -28,7 +28,7 @@ jobs:
       # 4️⃣ Create hidden ground truth CSV from secret
       - name: Create hidden test labels
         run: |
-          echo "${{ secrets.TESTREAL }}" > ground_truth.csv
+          echo "${{ secrets.TESTREAL }}" > data/ground_truth.csv
           echo "Ground truth first line:"
           head -1 ground_truth.csv
 
