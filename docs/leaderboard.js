@@ -1,8 +1,9 @@
 // Load CSV and populate table
 async function loadLeaderboard() {
 
-const response = await fetch("https://raw.githubusercontent.com/NoorMajdoub/Challenge/main/leaderboard/leaderboard.csv");
-   
+const response = await fetch(
+  "https://raw.githubusercontent.com/NoorMajdoub/Challenge/main/leaderboard/leaderboard.csv?ts=" + Date.now()
+);
 
     console.log("response")
     const text = await response.text();
@@ -12,7 +13,7 @@ const response = await fetch("https://raw.githubusercontent.com/NoorMajdoub/Chal
     tableBody.innerHTML = "";  // clear existing rows
 
     for (let row of rows) {
-        const [team, score] = row.split(",");
+        const [team, score] = row.split(/[,|\t]/);
         const tr = document.createElement("tr");
         tr.innerHTML = `<td>${team}</td><td>${parseFloat(score).toFixed(4)}</td>`;
         tableBody.appendChild(tr);
