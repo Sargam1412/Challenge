@@ -63,10 +63,10 @@ As for this task, we have altered samples from this data to present it for a  GN
 - **NOT available in `test.csv`** (this is what you need to test on)
 
 ### 📁 **Data Files**
-- **`train1.csv`** - Contains features AND corruption mask(part1)
-- **`train2.csv`** - Contains features AND corruption mask(part2)
+- **`train.npz`** - Contains features AND corruption mask(part1)
 - **`test.csv`** - Contains features only (no labels, no mask)
-- **`train_labels.csv`** - Contains labels for the full training data
+- **`labels.csv`** - Contains labels for the full training data
+- **`edges.csv`** - Describes the communication between the cells
   For dimentions issues we split the training data features in two , you would find additional code to help you import the data as a dataframe.
 ---
 
