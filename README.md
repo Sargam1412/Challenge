@@ -2,6 +2,7 @@
 
 ##  The Problem
 
+
 For most neural networks, classification tasks are made individually based on the embedding of each data point. Samples that belong to the same class tend to have similar embeddings and therefore lie close to each other in the embedding space.
 
 **Graph Neural Networks (GNNs)** fundamentally alter this paradigm by performing **collective decision making**. Rather than relying solely on the representation (embedding) of an individual node, the classification decision is influenced by the structure of the graph and by aggregated information from neighboring nodes.
