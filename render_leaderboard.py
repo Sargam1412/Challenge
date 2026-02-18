@@ -4,7 +4,7 @@ import pandas as pd
 csv_path = "leaderboard/leaderboard.csv"
 md_path = "leaderboard/leaderboard.md"
 
-df = pd.read_csv(csv_path, names=["team", "score"])
+df = pd.read_csv(csv_path)
 
 # Optional: sort by score descending
 df = df.sort_values(by="score", ascending=False)
