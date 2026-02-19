@@ -14,11 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-
       - run: pip install pandas scikit-learn
 
       - name: Load hidden labels
@@ -28,3 +26,14 @@ jobs:
       - name: Score new submissions
         run: |
           python update_leaderboard.py
+          python render_leaderboard.py
+
+      - name: Commit leaderboard updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add leaderboard/leaderboard.csv leaderboard/leaderboard.md
+          git commit -m "Update leaderboard" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push
