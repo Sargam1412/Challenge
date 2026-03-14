@@ -1,4 +1,7 @@
 | Team | Score |
 |------|-------|
 | submission_gururgg | 0.9957 |
+| submission_emmanuel_owusu | 0.9606 |
+| submission_faranbutt | 0.7606 |
+| submission_peguy | 0.7266 |
 | submission_mahatrabelsi1 | 0.4713 |
